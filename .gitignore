@@ -1,0 +1,29 @@
+# generated
+.ipynb_checkpoints/
+__pycache__/
+**my_dir/
+**logs/
+**models/
+
+# file types
+*.h5
+*.tflite
+*.keras
+*.zip
+*.pdf
+
+# data folders
+**data/
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+
+# mlflow
+mlruns
+mlflow.db
+backend.db
+*.html
+
