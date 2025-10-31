@@ -1,7 +1,6 @@
 
 import os
 import pandas as pd
-from ucimlrepo import fetch_ucirepo
 
 
 def load_divorce_data(data_path="01-divorce-eda/data"):
@@ -24,44 +23,41 @@ def load_divorce_data(data_path="01-divorce-eda/data"):
     os.makedirs(raw_path, exist_ok=True)
     os.makedirs(processed_path, exist_ok=True)
     
-    # Archivo local
+    # Archivo local en el directorio del proyecto
     filename = os.path.join(raw_path, "divorce.csv")
     
-    # Verificar si ya existe localmente
+    # Verificar si ya existe en raw/
     if os.path.exists(filename):
         print(f"ℹ️  El archivo {filename} ya existe, usando versión local")
-        # Intentar leer con diferentes configuraciones
-        try:
-            df = pd.read_csv(filename, sep=';', encoding='utf-8')
-        except:
-            try:
-                df = pd.read_csv(filename, sep=';', encoding='latin-1')
-            except:
-                df = pd.read_csv(filename, delimiter=';')
+        df = pd.read_csv(filename, sep=';', encoding='utf-8', on_bad_lines='skip')
     else:
-        # Descargar desde UCI usando ucimlrepo
-        print("📥 Descargando dataset desde UCI Machine Learning Repository...")
-        try:
-            # Fetch dataset (ID 497 para Divorce Predictors)
-            divorce_dataset = fetch_ucirepo(id=497)
-            
-            # Combinar características y objetivo
-            X = divorce_dataset.data.features
-            y = divorce_dataset.data.targets
-            
-            # Crear DataFrame completo
-            df = pd.concat([X, y], axis=1)
-            
-            # Guardar versión raw
+        # Archivo fuente en la raíz del repositorio
+        # Obtener la ruta absoluta del script actual
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        # Subir dos niveles: scripts -> 01-divorce-eda -> MLO
+        repo_root = os.path.join(script_dir, "..", "..")
+        source_file = os.path.join(repo_root, "divorce.csv")
+        source_file = os.path.abspath(source_file)
+        
+        if os.path.exists(source_file):
+            # Copiar desde la raíz del repositorio
+            print(f"ℹ️  Copiando archivo desde {source_file}")
+            # Leer el archivo con manejo de líneas mal formadas
+            df = pd.read_csv(source_file, sep=';', encoding='utf-8', on_bad_lines='skip')
+            # Guardar en raw/
             df.to_csv(filename, index=False, sep=';')
-            print(f"✅ Datos descargados y guardados en: {filename}")
-            
-        except Exception as e:
-            print(f"❌ Error descargando datos: {e}")
-            print("\n💡 Solución alternativa:")
-            print("   Descarga manualmente desde: https://archive.ics.uci.edu/dataset/497/divorce+predictors+data+set")
-            print(f"   Y guarda el archivo en: {filename}")
-            raise
+            print(f"✅ Archivo copiado a: {filename}")
+        else:
+            # Archivo no encontrado
+            raise FileNotFoundError(
+                f"No se encontró el archivo de datos.\n"
+                f"Buscado en:\n"
+                f"  - {filename}\n"
+                f"  - {source_file}\n\n"
+                f"Por favor, descarga el archivo manualmente desde:\n"
+                f"https://archive.ics.uci.edu/dataset/539/divorce+predictors+data+set\n"
+                f"Y guárdalo como: {source_file}"
+            )
     
     # Información básica
     print(f"\n📊 Datos cargados exitosamente!")
