@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  # FastAPI Application
+  api:
+    build: .
+    container_name: divorce-prediction-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+      - ./logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+    networks:
+      - ml-network
+
+  # MLflow Tracking Server
+  mlflow:
+    image: python:3.11-slim
+    container_name: mlflow-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlruns:/mlruns
+      - ./mlflow-artifacts:/mlflow-artifacts
+    command: >
+      sh -c "pip install mlflow>=3.2.0 &&
+             mlflow server
+             --backend-store-uri sqlite:///mlruns/mlflow.db
+             --default-artifact-root /mlflow-artifacts
+             --host 0.0.0.0
+             --port 5000"
+    restart: unless-stopped
+    networks:
+      - ml-network
+
+networks:
+  ml-network:
+    driver: bridge
+
+volumes:
+  mlruns:
+  mlflow-artifacts:
+  models:
+  logs:
