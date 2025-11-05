@@ -1,7 +1,7 @@
 [project]
 name = "machine-learning-udm"
 version = "0.1.0"
-description = "Add your description here"
+description = "MLOps Pipeline for Divorce Prediction - Universidad de Medellín"
 readme = "README.md"
 requires-python = ">=3.11.14"
 dependencies = [
@@ -18,4 +18,10 @@ dependencies = [
     "seaborn>=0.12.0",
     "ucimlrepo>=0.0.3",
     "xgboost>=3.1.1",
+    "prefect>=3.1.0",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.32.0",
+    "pydantic>=2.10.0",
+    "python-multipart>=0.0.12",
+    "joblib>=1.4.0",
 ]
