@@ -37,6 +37,81 @@ Desarrollar un sistema completo de Machine Learning Operations (MLOps) que:
   - 3 = Frecuentemente
   - 4 = Siempre
 
+#### Descripción de Variables
+
+El cuestionario evalúa diferentes dimensiones de la relación matrimonial basadas en la Escala de Medición de Divorcio de Gottman:
+
+**Resolución de Conflictos (Atr1-4)**
+1. **Atr1**: Cuando uno de nosotros se disculpa cuando nuestras discusiones van en una mala dirección, el problema no se extiende.
+2. **Atr2**: Sé que podemos ignorar nuestras diferencias, incluso si las cosas se ponen difíciles a veces.
+3. **Atr3**: Cuando lo necesitamos, podemos retomar nuestras discusiones con mi esposa desde el principio y corregirlas.
+4. **Atr4**: Cuando discuto con mi esposa, eventualmente funcionará para mí contactarla.
+
+**Tiempo de Calidad y Conexión (Atr5-10)**
+5. **Atr5**: El tiempo que paso con mi esposa es especial para nosotros.
+6. **Atr6**: No tenemos tiempo en casa como pareja.
+7. **Atr7**: Somos como dos extraños que comparten el mismo entorno en casa en lugar de familia.
+8. **Atr8**: Disfruto nuestras vacaciones con mi esposa.
+9. **Atr9**: Disfruto viajar con mi esposa.
+10. **Atr10**: Mi esposa y la mayoría de nuestros objetivos son comunes.
+
+**Valores y Compatibilidad (Atr11-20)**
+11. **Atr11**: Creo que un día en el futuro, cuando mire hacia atrás, veré que mi esposa y yo estamos en armonía el uno con el otro.
+12. **Atr12**: Mi esposa y yo tenemos valores similares en términos de libertad personal.
+13. **Atr13**: Mi esposa y yo tenemos entretenimiento similar.
+14. **Atr14**: La mayoría de nuestros objetivos para las personas (hijos, amigos, etc.) son los mismos.
+15. **Atr15**: Nuestros sueños de vivir con mi esposa son similares y armoniosos.
+16. **Atr16**: Somos compatibles con mi esposa sobre lo que debería ser el amor.
+17. **Atr17**: Compartimos los mismos puntos de vista con mi esposa sobre ser feliz en tu vida.
+18. **Atr18**: Mi esposa y yo tenemos ideas similares sobre cómo debería ser el matrimonio.
+19. **Atr19**: Mi esposa y yo tenemos ideas similares sobre cómo deberían ser los roles en el matrimonio.
+20. **Atr20**: Mi esposa y yo tenemos valores similares en confianza.
+
+**Conocimiento del Cónyuge (Atr21-30)**
+21. **Atr21**: Sé exactamente lo que le gusta a mi esposa.
+22. **Atr22**: Sé cómo mi esposa quiere ser cuidada cuando está enferma.
+23. **Atr23**: Sé la comida favorita de mi esposa.
+24. **Atr24**: Puedo decirte qué tipo de estrés enfrenta mi esposa en su vida.
+25. **Atr25**: Tengo conocimiento del mundo interior de mi esposa.
+26. **Atr26**: Conozco las preocupaciones básicas de mi esposa.
+27. **Atr27**: Sé cuáles son las fuentes actuales de estrés de mi esposa.
+28. **Atr28**: Conozco las esperanzas y deseos de mi esposa.
+29. **Atr29**: Conozco muy bien a mi esposa.
+30. **Atr30**: Conozco a los amigos de mi esposa y sus relaciones sociales.
+
+**Agresión y Comunicación Negativa (Atr31-41)**
+31. **Atr31**: Me siento agresivo cuando discuto con mi esposa.
+32. **Atr32**: Cuando discuto con mi esposa, generalmente uso expresiones como "tú siempre" o "tú nunca".
+33. **Atr33**: Puedo usar declaraciones negativas sobre la personalidad de mi esposa durante nuestras discusiones.
+34. **Atr34**: Puedo usar expresiones ofensivas durante nuestras discusiones.
+35. **Atr35**: Puedo insultar en nuestras discusiones.
+36. **Atr36**: Puedo ser humillante cuando discutimos.
+37. **Atr37**: Mi discusión con mi esposa no es tranquila.
+38. **Atr38**: Odio la forma en que mi esposa lo plantea.
+39. **Atr39**: Las peleas a menudo ocurren repentinamente.
+40. **Atr40**: Estamos comenzando una pelea antes de que sepa lo que está pasando.
+41. **Atr41**: Cuando hablo con mi esposa sobre algo, mi calma se rompe repentinamente.
+
+**Evitación y Retirada (Atr42-47)**
+42. **Atr42**: Cuando discuto con mi esposa, solo me callo y no digo una palabra.
+43. **Atr43**: Tengo sed sobre todo para calmar el ambiente un poco.
+44. **Atr44**: A veces pienso que es bueno para mí salir de casa por un tiempo.
+45. **Atr45**: Prefiero quedarme en silencio que discutir con mi esposa.
+46. **Atr46**: Incluso si tengo razón en la discusión, tengo sed de no molestar al otro lado.
+47. **Atr47**: Cuando discuto con mi esposa, permanezco en silencio porque tengo miedo de no poder controlar mi ira.
+
+**Actitud Defensiva (Atr48-54)**
+48. **Atr48**: Me siento bien en nuestras discusiones.
+49. **Atr49**: No tengo nada que ver con lo que me han acusado.
+50. **Atr50**: En realidad no soy el culpable de lo que me acusan.
+51. **Atr51**: No soy el que está equivocado sobre los problemas en casa.
+52. **Atr52**: No dudaría en hablarle a mi esposa sobre su insuficiencia.
+53. **Atr53**: Cuando lo discuto, le recuerdo a mi esposa sus problemas inadecuados.
+54. **Atr54**: No tengo miedo de hablarle a mi esposa sobre su incompetencia.
+
+**Variable Objetivo**
+- **Divorce**: 1 = Divorciado, 0 = Casado
+
 ### 1.4 Desafíos
 
 1. **Dataset pequeño**: Solo 170 instancias requieren técnicas cuidadosas de validación
